@@ -48,16 +48,23 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    modules: [
-      '@nuxtjs/pwa'
-    ],
-    manifest: {
-      name: 'Tutorial-PWA',
-      lang: 'ja'
-    },
-    workbox: {
-      dev: true,
     }
+  },
+  modules: [
+    '@nuxtjs/pwa'
+  ],
+  manifest: {
+    name: 'Tutorial-PWA',
+    lang: 'ja',
+    short_name: 'Tutorial',
+    title: 'Tutorial-PWA',
+    'og:title': 'Tutorial-PWA',
+    description: 'Tutorial-PWA',
+    'og:description': 'Tutorial-PWA',
+    theme_color: '#ffffff',
+    background_color: '#ffffff'
+  },
+  workbox: {
+    dev: true,
   }
 }

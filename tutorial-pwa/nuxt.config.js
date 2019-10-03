@@ -40,6 +40,13 @@ export default {
   modules: [
     '@nuxtjs/pwa',
   ],
+  manifest: {
+    name: 'Tutorial-PWA',
+    lang: 'ja'
+  },
+  workbox: {
+    dev: true,
+  },
   /*
   ** Build configuration
   */

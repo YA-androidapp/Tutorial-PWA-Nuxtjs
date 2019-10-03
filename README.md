@@ -73,9 +73,42 @@ $ npx create-nuxt-app tutorial-pwa
 >
 >         npm run start
 
-### 2. ビルド
+### 2. 動作確認
 
 ```bat
 $ cd tutorial-pwa
-$ npm install
+$ npm run dev
 ```
+
+### 3. PWA有効化のための設定変更
+
+`nuxt.config.js` に以下の設定を追記。 `dev: true` を指定することで、localhostでもPWAが有効になる
+
+```js
+  manifest: {
+    name: 'Tutorial-PWA',
+    lang: 'ja',
+  },
+  workbox: {
+    dev: true,
+  },
+```
+
+```bat
+$ npm run dev
+```
+
+F12開発ツールのConsoleを開き、Service workerが登録されていることを確認
+
+> Successfully registered service worker. /sw.js
+
+### 4. ビルド
+
+```bat
+$ npm run build
+$ npm run start
+```
+
+---
+
+Copyright (c) 2019 YA-androidapp(https://github.com/YA-androidapp) All rights reserved.

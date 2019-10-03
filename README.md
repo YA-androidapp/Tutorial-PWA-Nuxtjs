@@ -109,6 +109,35 @@ $ npm run build
 $ npm run start
 ```
 
+### 5. gh-pages(GitHub)へのデプロイ
+
+`nuxt.config.js` に以下の設定を追記。サブディレクトリでも動作可能になる
+
+```js
+// `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/<repository-name>/'
+  }
+} : {}
+```
+
+`package.json` に以下の設定を追記
+
+```js
+"scripts": {
+  "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
+  "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate"
+},
+```
+
+静的サイトを生成
+
+```sh
+$ npm run build:gh-pages
+$ npm run generate:gh-pages
+```
+
 ---
 
 Copyright (c) 2019 YA-androidapp(https://github.com/YA-androidapp) All rights reserved.
